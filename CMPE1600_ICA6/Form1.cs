@@ -61,26 +61,8 @@ namespace CMPE1600_ICA6
         private void imageTimer_Tick(object sender, EventArgs e)
         {
             Random rand = new Random();
-
-            if (dice1Hold == false)            
-                dice1 = rand.Next(6);            
-            if (dice2Hold == false)
-                dice2 = rand.Next(6);
-            if (dice3Hold == false)
-                dice3 = rand.Next(6);
-            if (dice4Hold == false)
-                dice4 = rand.Next(6);
-            if (dice5Hold == false)
-                dice5 = rand.Next(6);
-            if (dice6Hold == false)
-                dice6 = rand.Next(6);
-
-            UI_DiceBox1.Image = imageList1.Images[dice1];
-            UI_DiceBox2.Image = imageList1.Images[dice2];
-            UI_DiceBox3.Image = imageList1.Images[dice3];
-            UI_DiceBox4.Image = imageList1.Images[dice4];
-            UI_DiceBox5.Image = imageList1.Images[dice5];
-            UI_DiceBox6.Image = imageList1.Images[dice6];
+            DiceRandomizer(rand);
+            DiceRolling();
         }
 
         //Controls length of time that dice roll
@@ -103,32 +85,10 @@ namespace CMPE1600_ICA6
         //Resets everything to base case
         private void UI_PlayAgainButton_Click(object sender, EventArgs e)
         {
-            UI_RollButton.Enabled = true;
-            rollCount = 0;
-            UI_RollValue.Text = 0.ToString();
-            UI_ScoreLabel.Text = "Score:";
-            UI_ScoreValue.Text = 0.ToString();
-            UI_DiceBox1.BackColor = Color.White;
-            dice1Hold = false;
-            UI_DiceBox2.BackColor = Color.White;
-            dice2Hold = false;
-            UI_DiceBox3.BackColor = Color.White;
-            dice3Hold = false;
-            UI_DiceBox4.BackColor = Color.White;
-            dice4Hold = false;
-            UI_DiceBox5.BackColor = Color.White;
-            dice5Hold = false;
-            UI_DiceBox6.BackColor = Color.White;
-            dice6Hold = false;
-            UI_DiceBox1.Image = null;
-            UI_DiceBox2.Image = null;
-            UI_DiceBox3.Image = null;
-            UI_DiceBox4.Image = null;
-            UI_DiceBox5.Image = null;
-            UI_DiceBox6.Image = null;
+            GameReset();
 
         }
-        
+
         //      All events below detect click on die, and change
         //      border color based on previous state, as well as
         //      either puts a hold on die or not depending on
@@ -236,6 +196,72 @@ namespace CMPE1600_ICA6
                     dice6Hold = false;
                 }
             }
+        }
+        //
+        // End of Dice Hold and click methods
+        //
+
+        //Resets most objects to their initial state
+        private void GameReset()
+        {
+            UI_RollButton.Enabled = true;
+            rollCount = 0;
+            UI_RollValue.Text = 0.ToString();
+            UI_ScoreLabel.Text = "Score:";
+            UI_ScoreValue.Text = 0.ToString();
+            DiceReset();
+        }
+        //Resets all the dice and dice boxes
+        private void DiceReset()
+        {
+            UI_DiceBox1.BackColor = Color.White;
+            dice1Hold = false;
+            UI_DiceBox2.BackColor = Color.White;
+            dice2Hold = false;
+            UI_DiceBox3.BackColor = Color.White;
+            dice3Hold = false;
+            UI_DiceBox4.BackColor = Color.White;
+            dice4Hold = false;
+            UI_DiceBox5.BackColor = Color.White;
+            dice5Hold = false;
+            UI_DiceBox6.BackColor = Color.White;
+            dice6Hold = false;
+            UI_DiceBox1.Image = null;
+            UI_DiceBox2.Image = null;
+            UI_DiceBox3.Image = null;
+            UI_DiceBox4.Image = null;
+            UI_DiceBox5.Image = null;
+            UI_DiceBox6.Image = null;
+        }
+        //Randomizes dice value, but
+        //does not actually change
+        //the image shown -- see DiceRolling
+        private void DiceRandomizer(Random rand)
+        {
+            if (dice1Hold == false)
+                dice1 = rand.Next(6);
+            if (dice2Hold == false)
+                dice2 = rand.Next(6);
+            if (dice3Hold == false)
+                dice3 = rand.Next(6);
+            if (dice4Hold == false)
+                dice4 = rand.Next(6);
+            if (dice5Hold == false)
+                dice5 = rand.Next(6);
+            if (dice6Hold == false)
+                dice6 = rand.Next(6);
+        }
+        //Changes the dice image shown
+        //based on the randomized value
+        //at each timer tick
+        private void DiceRolling()
+        {
+            UI_DiceBox1.Image = imageList1.Images[dice1];
+            UI_DiceBox2.Image = imageList1.Images[dice2];
+            UI_DiceBox3.Image = imageList1.Images[dice3];
+            UI_DiceBox4.Image = imageList1.Images[dice4];
+            UI_DiceBox5.Image = imageList1.Images[dice5];
+            UI_DiceBox6.Image = imageList1.Images[dice6];
         }
     }
 }
