@@ -205,6 +205,7 @@ namespace CMPE1600_ICA6
         private void GameReset()
         {
             UI_RollButton.Enabled = true;
+            UI_PlayAgainButton.Enabled = false;
             rollCount = 0;
             UI_RollValue.Text = 0.ToString();
             UI_ScoreLabel.Text = "Score:";
