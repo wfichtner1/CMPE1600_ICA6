@@ -43,6 +43,8 @@
             this.UI_ScoreLabel = new System.Windows.Forms.Label();
             this.imageTimer = new System.Windows.Forms.Timer(this.components);
             this.rollTimer = new System.Windows.Forms.Timer(this.components);
+            this.UI_RollValue = new System.Windows.Forms.Label();
+            this.UI_ScoreValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // imageList1
@@ -150,11 +152,31 @@
             this.rollTimer.Interval = 1000;
             this.rollTimer.Tick += new System.EventHandler(this.rollTimer_Tick);
             // 
+            // UI_RollValue
+            // 
+            this.UI_RollValue.AutoSize = true;
+            this.UI_RollValue.Location = new System.Drawing.Point(164, 138);
+            this.UI_RollValue.Name = "UI_RollValue";
+            this.UI_RollValue.Size = new System.Drawing.Size(13, 13);
+            this.UI_RollValue.TabIndex = 10;
+            this.UI_RollValue.Text = "0";
+            // 
+            // UI_ScoreValue
+            // 
+            this.UI_ScoreValue.AutoSize = true;
+            this.UI_ScoreValue.Location = new System.Drawing.Point(164, 168);
+            this.UI_ScoreValue.Name = "UI_ScoreValue";
+            this.UI_ScoreValue.Size = new System.Drawing.Size(13, 13);
+            this.UI_ScoreValue.TabIndex = 11;
+            this.UI_ScoreValue.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 261);
+            this.Controls.Add(this.UI_ScoreValue);
+            this.Controls.Add(this.UI_RollValue);
             this.Controls.Add(this.UI_ScoreLabel);
             this.Controls.Add(this.UI_RollLabel);
             this.Controls.Add(this.UI_DiceBox6);
@@ -188,6 +210,8 @@
         private System.Windows.Forms.Label UI_ScoreLabel;
         private System.Windows.Forms.Timer imageTimer;
         private System.Windows.Forms.Timer rollTimer;
+        private System.Windows.Forms.Label UI_RollValue;
+        private System.Windows.Forms.Label UI_ScoreValue;
     }
 }
 
