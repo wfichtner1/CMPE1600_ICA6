@@ -26,7 +26,7 @@ namespace CMPE1600_ICA6
         bool dice5Hold = false; //
         bool dice6Hold = false; //
         int rollCount = 0;      //  Counts how many times roll has been clocked
-        //private SoundPlayer mPlayer = new SoundPlayer();    waiting to see if there actually is a sound component
+        SoundPlayer mPlayer = new SoundPlayer(CMPE1600_ICA6.Properties.Resources.diceboard);    //preps sound file
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace CMPE1600_ICA6
 
         //Preps the labels to have images
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {                        
             UI_DiceBox1.Image = null;
             UI_DiceBox2.Image = null;
             UI_DiceBox3.Image = null;
@@ -49,6 +49,7 @@ namespace CMPE1600_ICA6
         {
             imageTimer.Enabled = true;
             rollTimer.Enabled = true;
+            mPlayer.Play();
             rollCount++;
             UI_RollValue.Text = rollCount.ToString();
         }
