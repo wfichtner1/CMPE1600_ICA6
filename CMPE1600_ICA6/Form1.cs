@@ -13,6 +13,17 @@ namespace CMPE1600_ICA6
 {
     public partial class Form1 : Form
     {
+        public struct Highscores
+        {
+            public string _name;
+            public int _score;
+
+            public Highscores(string name, int score)
+            {
+                _name = name;
+                _score = score;
+            }
+        }
         int dice1 = 0;  //
         int dice2 = 0;  //
         int dice3 = 0;  //

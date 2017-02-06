@@ -144,9 +144,9 @@
             this.UI_RollLabel.AutoSize = true;
             this.UI_RollLabel.Location = new System.Drawing.Point(137, 138);
             this.UI_RollLabel.Name = "UI_RollLabel";
-            this.UI_RollLabel.Size = new System.Drawing.Size(25, 13);
+            this.UI_RollLabel.Size = new System.Drawing.Size(28, 13);
             this.UI_RollLabel.TabIndex = 8;
-            this.UI_RollLabel.Text = "Roll";
+            this.UI_RollLabel.Text = "Roll:";
             // 
             // UI_ScoreLabel
             // 
